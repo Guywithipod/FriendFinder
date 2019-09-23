@@ -1,3 +1,18 @@
+const friendsDataGet = require("../data/friends");
+
+const friendsDataPost = require("../data/friends");
+
+module.exports = function(app) {
+
+    app.get("/api/friends", function(req, res) {
+        res.json(friendsDataGet);
+      });
+
+      
+  app.post("/api/friends", function(req, res) {
+      friends.push(req.body);
+    });
+}
 
 //    * A GET route with the url `/api/friends`. This will be used to display a JSON of all possible friends.
 
