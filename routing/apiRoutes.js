@@ -1,16 +1,41 @@
-const friendsDataGet = require("../data/friends");
+const friendsData = require("../app/data/friends");
 
-const friendsDataPost = require("../data/friends");
 
 module.exports = function(app) {
+  
 
     app.get("/api/friends", function(req, res) {
-        res.json(friendsDataGet);
+        res.json(friendsData);
       });
 
       
   app.post("/api/friends", function(req, res) {
-      friends.push(req.body);
+  
+      //Keep track of current minimum
+      let min = Infinity;
+      //Keep track of user with current minimum
+      let minUser = undefined;
+      //FOr loop iterates over each friend in friends.js
+      for (let i=0; i< friendsData.length;i++){
+
+        let difference = 0;
+          //We ened to keep track of difference for each inner loop
+
+            //Inner for loop iterates over either the incoming socres or the scores property of the current user i is looking at (same)
+            for (let j=0; j< friendsData[i].scores.length; j++){
+               //How do we take teh abs value -- subtract the two scores, wee need to add whatever that value is to differemce
+               const absValue = Math.abs(req.body.scores[j]-friendsData[i].scores[j])
+
+               difference += absValue;
+            }
+            //we shoudl copare the current difference we just calculated with who we think is already the current min, if we have a better user then we store that info  
+            if( difference < min){
+                 min = difference;
+                 minUser = friendsData[i];
+            }
+      }
+    //After both loops we return user stored in min var
+     res.json(minUser);
     });
 }
 
