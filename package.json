@@ -1,0 +1,27 @@
+
+  
+{
+    "name": "friendfinder",
+    "version": "1.0.0",
+    "description": "sets up a reservation at the hottest diner in the world",
+    "main": "server.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node Server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guywithipod/FriendFinder.git"
+  },
+  "keywords": [],
+  "author": "FriendFinder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Guywithipod/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/Guywithipod/FriendFinder#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "heroku": "^7.30.0"
+  }
+}
