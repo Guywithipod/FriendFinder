@@ -19,23 +19,28 @@ module.exports = function(app) {
       for (let i=0; i< friendsData.length;i++){
 
         let difference = 0;
-          //We ened to keep track of difference for each inner loop
+          //We need to keep track of difference for each inner loop
 
-            //Inner for loop iterates over either the incoming socres or the scores property of the current user i is looking at (same)
+            //Inner for loop iterates over either the incoming score or the scores property of the current user i is looking at (same)
             for (let j=0; j< friendsData[i].scores.length; j++){
-               //How do we take teh abs value -- subtract the two scores, wee need to add whatever that value is to differemce
+
+               //How do we take the abs value -- subtract the two scores, wee need to add whatever that value is to differemce
                const absValue = Math.abs(req.body.scores[j]-friendsData[i].scores[j])
 
                difference += absValue;
             }
-            //we shoudl copare the current difference we just calculated with who we think is already the current min, if we have a better user then we store that info  
+
+            //we should compare the current difference we just calculated with who we think is already the current min, if we have a better user then we store that info  
             if( difference < min){
                  min = difference;
                  minUser = friendsData[i];
             }
       }
+
     //After both loops we return user stored in min var
+
      res.json(minUser);
+     
     });
 }
 

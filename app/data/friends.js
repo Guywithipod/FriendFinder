@@ -15,6 +15,7 @@ const friends =
       ]
 },
 {
+  
   "name":"Jenny",
     "photo":"",
     "scores":[
